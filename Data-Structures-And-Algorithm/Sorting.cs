@@ -55,7 +55,22 @@ namespace Data_Structures_And_Algorithm
 
         public static void ShellSort(int[] arr)
         {
+            int gap = 1;
+            while (gap < arr.Length / 3)
+                gap = 3 * gap + 1;
 
+            while(gap >= 1)
+            {
+                for (int i = gap; i < arr.Length; i++)
+                {
+                    for (int j = i; j >= gap && arr[j] < arr[j -gap]; j -= gap)
+                    {
+                        Swap(arr, j, j - gap);
+                    }
+                }
+
+                gap /= 3;
+            }
         }
 
         private static void Swap(int[] array, int i, int j)

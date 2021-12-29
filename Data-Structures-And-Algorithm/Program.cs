@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 
@@ -10,19 +11,33 @@ namespace Data_Structures_And_Algorithm
         {
 
             int[] array = { 9, 1, 8, 2, 7, 3, 6, 4, 5, 10 };
+            //Sorting.ShellSorter (array);
+            //foreach (int i in array)
+            //{
+            //    Thread.Sleep(150);
+            //    Console.Write(i);
+            //}
 
-            Sorting.Insertion(array);
-            foreach (int i in array)
-            {
-                Thread.Sleep(250);
-                Console.Write(i);
-            }
 
-            //Console.WriteLine(Sorting.IterativeFactorial(5));
-            //Console.WriteLine(Sorting.RecursionFactorial(55));
         }
 
-        public static bool IsPalindrome(string input)
+        public static bool IsPalindromeInt(int x)
+        {
+            if (x < 0)
+                return false;
+
+            int[] arr = x.ToString().Select(x => Convert.ToInt32(x) - 48).ToArray();
+
+
+            for (int i = 0; i < arr.Length / 2; i++)
+            {
+                if (arr[i] != arr[arr.Length - i - 1])
+                    return false;
+            }
+            return true;
+        }
+
+        public static bool IsPalindromeString(string input)
         {
             string str = RemoveNonAlphanumericCharacter(input.ToLower());
             if (str == "")
@@ -42,5 +57,6 @@ namespace Data_Structures_And_Algorithm
             Console.WriteLine(str);
             return str;
         }
+
     }
 }

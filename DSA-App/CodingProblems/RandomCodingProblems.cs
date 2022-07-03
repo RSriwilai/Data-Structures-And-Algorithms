@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Data_Structures_And_Algorithm
+namespace Data_Structures_And_Algorithm.CodingProblems
 {
     public class RandomCodingProblems
     {
@@ -104,7 +104,7 @@ namespace Data_Structures_And_Algorithm
 
         private static string RemoveNonAlphanumericCharacter(string str)
         {
-            str = Regex.Replace(str, "[^a-zA-Z0-9]", String.Empty);
+            str = Regex.Replace(str, "[^a-zA-Z0-9]", string.Empty);
             Console.WriteLine(str);
             return str;
         }
